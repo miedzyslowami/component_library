@@ -158,6 +158,12 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
 
+
+          /* config to use 4rd party css*/
+          {
+           test: /(globalStyles\.css)$/,
+           use: ExtractTextPlugin.extract('style-loader', 'css-loader')
+         },
           /*Configuration added by me to use sass-modules */
           {
               test: /(\.css|\.scss)$/,

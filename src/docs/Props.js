@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import scss from './../index.scss';
 
 const Props = ({props}) => {
   return (
-    <table className="props">
+    <table className={scss.props}>
       <thead>
         <tr>
           <th>Name</th>

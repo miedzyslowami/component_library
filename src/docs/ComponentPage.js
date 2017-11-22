@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Example from './Example';
 import Props from './Props';
+import scss from './../index.scss';
 
 const ComponentPage = ({component}) => {
   const {name, description, props, examples} = component;
 
   return (
-    <div className="componentpage">
+    <div className={scss.componentpage}>
       <h2>{name}</h2>
       <p>{description}</p>
 

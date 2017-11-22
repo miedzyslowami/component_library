@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import scss from './../index.scss';
 
 class Navigation extends React.Component{
-  constructor(props){
-    super(props)
-  }
   render(){
     return (
-      <ul className="navigation">
+      <ul className={scss.navigation}>
         {
           this.props.components.map((name) => {
             return (

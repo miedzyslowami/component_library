@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import hljs from 'highlight.js/lib/highlight'
 import javascript from 'highlight.js/lib/languages/javascript'
-
+import './../globalStyles/atom-one-dark.css';
 // This way is easy, but adds 170K gzipped to bundle since all langs are included.
 // import Highlight from 'react-highlight';
 

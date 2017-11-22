@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Label from './../Label/Label';
-import css from './TextInput.css';
+import scss from './textInput.scss';
+
 /** Text input with integrated label to enforce consistency in layout, error display, label placement, and required field marker. */
 function TextInput({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
   return (
     <div style={{marginBottom: 16}}>
       <Label htmlFor={htmlId} label={label} required={required} />
-      <input className={css.red}
+      <input
         id={htmlId}
         type={type}
         name={name}
@@ -17,7 +18,7 @@ function TextInput({htmlId, name, label, type = "text", required = false, onChan
         style={error && {border: 'solid 1px red'}}
         {...props}/>
         {children}
-      {error && <div className="error" style={{color: 'red'}}>{error}</div>}
+      {error && <div className={scss.error}>{error}</div>}
     </div>
   );
 };

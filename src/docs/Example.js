@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CodeExample from './CodeExample';
+import scss from './../index.scss';
 
 class Example extends React.Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class Example extends React.Component {
     // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
     const ExampleComponent = require(`./examples/${this.props.componentName}/${name}`).default;
     return (
-      <div className="example">
+      <div className={scss.example}>
         {description && <h4>{description}</h4> }
 
         <ExampleComponent />
 
-        <p>
-          <a href="" onClick={this.toggleCode}>
+        <p className={scss.showCodeBtn}>
+          <a href="" onClick={this.toggleCode} >
             {showCode ? "Hide" : "Show"} Code
           </a>
         </p>

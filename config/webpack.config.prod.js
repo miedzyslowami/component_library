@@ -10,6 +10,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -166,54 +167,90 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                    },
-                  },
+              test: /(\.css|\.scss)$/,
+              use: ExtractTextPlugin.extract({
+                  fallback: "style-loader",
                   use: [
-                    {
-                      loader: require.resolve('css-loader'),
-                      options: {
-                        importLoaders: 1,
-                        modules:true,
-                        localIdentName: '[name]_[local]_[hash:base64:5]',
-                        minimize: true,
-                        sourceMap: shouldUseSourceMap,
+                      {
+                          loader: "css-loader",
+                          options: {
+                              sourceMap: true,
+                              modules: true,
+                              importLoaders: true,
+                              localIdentName: "[name]__[local]___[hash:base64:5]"
+                          }
                       },
-                    },
-                    {
-                      loader: require.resolve('postcss-loader'),
-                      options: {
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: 'postcss',
-                        plugins: () => [
-                          require('postcss-flexbugs-fixes'),
-                          autoprefixer({
-                            browsers: [
-                              '>1%',
-                              'last 4 versions',
-                              'Firefox ESR',
-                              'not ie < 9', // React doesn't support IE8 anyway
-                            ],
-                            flexbox: 'no-2009',
-                          }),
-                        ],
+                      {
+                          loader: "postcss-loader",
+                          options: {
+                              plugins: function () {
+                                  return [
+                                      require("autoprefixer")
+                                  ];
+                              }
+                          }
                       },
-                    },
-                  ],
-                },
-                extractTextPluginOptions
-              )
-            ),
-            // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+                      {
+                          loader: "sass-loader",
+                          options: {
+                              sourceMap: true
+                          }
+                      }
+                  ]
+              })
           },
+
+
+
+          // {
+          //   test: /\.css$/,
+          //   loader: ExtractTextPlugin.extract(
+          //     Object.assign(
+          //       {
+          //         fallback: {
+          //           loader: require.resolve('style-loader'),
+          //           options: {
+          //             hmr: false,
+          //           },
+          //         },
+          //         use: [
+          //           {
+          //             loader: require.resolve('css-loader'),
+          //             options: {
+          //               importLoaders: 1,
+          //               modules:true,
+          //               localIdentName: '[name]_[local]_[hash:base64:5]',
+          //               minimize: true,
+          //               sourceMap: shouldUseSourceMap,
+          //             },
+          //           },
+          //           {
+          //             loader: require.resolve('postcss-loader'),
+          //             options: {
+          //               // Necessary for external CSS imports to work
+          //               // https://github.com/facebookincubator/create-react-app/issues/2677
+          //               ident: 'postcss',
+          //               plugins: () => [
+          //                 require('postcss-flexbugs-fixes'),
+          //                 autoprefixer({
+          //                   browsers: [
+          //                     '>1%',
+          //                     'last 4 versions',
+          //                     'Firefox ESR',
+          //                     'not ie < 9', // React doesn't support IE8 anyway
+          //                   ],
+          //                   flexbox: 'no-2009',
+          //                 }),
+          //               ],
+          //             },
+          //           },
+          //         ],
+          //       },
+          //       extractTextPluginOptions
+          //     )
+          //   ),
+          //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          // },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
           // This loader doesn't use a "test" so it will catch all modules
@@ -236,6 +273,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new ExtractTextPlugin("styles.css"),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

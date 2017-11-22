@@ -1,0 +1,75 @@
+// :global{
+//   @import './../node_modules/highlight.js/styles/atom-one-dark.css';
+// }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  .navigation {
+    float: left;
+    width: 250px;
+    list-style-type: none;
+    padding: 0;
+    li{
+      padding: 10px;
+      background-color: #26547C;
+      margin: 10px 0;
+    }
+    a, a:visited {
+      text-decoration: none;
+      color: #FFFCF9;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+  }
+  .props{
+    table {
+      border-collapse:collapse;
+      td {
+        border-top: solid 1px #EF476F;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+      th, td {
+        text-align: left;
+        padding: 5px;
+      }
+      td:last-of-type {
+        text-align: center;
+    }
+  }
+}
+
+/* Documentation site component styles */
+.example {
+  border: solid 2px #FFD166;
+  padding: 16px;
+  margin-bottom: 16px;
+  h4:first-of-type {
+     margin-top: 0;
+  }
+
+  .showCodeBtn{
+    margin:20px 0;
+    a{
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color:black;
+      background-color: #FFD166;
+      padding: 10px;
+    }
+  }
+}
+
+.componentpage {
+  margin-left: 275px;
+}
+.clear {
+  clear: both;
+}
+}
+
+
+//#EF476F  #06D6A0 #FFD166 #FFFCF9
