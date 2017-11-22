@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**pointless comment */
-class Footer extends React.Component{
+class ProgressBar extends React.Component{
   render(){
       return <div>Hello {this.props.message}</div>
   }
 }
 
-Footer.propTypes = {
+ProgressBar.propTypes = {
   /** Message to display */
   message: PropTypes.string
 };
 
-Footer.defaultProps = {
+ProgressBar.defaultProps = {
   message: 'World'
 };
 
-export default Footer;
+export default ProgressBar;
