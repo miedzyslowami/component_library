@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CodeExample from './CodeExample';
 import scss from './../index.scss';
+import '../globalStyles/atom-one-dark.css';
 
 class Example extends React.Component {
   constructor(props) {
