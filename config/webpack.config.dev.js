@@ -160,16 +160,16 @@ module.exports = {
 
 
           /* config to use 4rd party css*/
-          {
-           test: /(globalStyles\.css)$/,
-           use: ExtractTextPlugin.extract('style-loader', 'css-loader')
-         },
+        //   {
+        //    test: /(globalStyles\.css)$/,
+        //    use: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        //  },
           /*Configuration added by me to use sass-modules */
 
 
 
           {
-              test: /(\.scss)$/,
+              test: /\.scss$/,
               use: ExtractTextPlugin.extract({
                   fallback: "style-loader",
                   use: [
@@ -185,11 +185,21 @@ module.exports = {
                       {
                           loader: "postcss-loader",
                           options: {
-                              plugins: function () {
-                                  return [
-                                      require("autoprefixer")
-                                  ];
-                              }
+                            // Necessary for external CSS imports to work
+                            // https://github.com/facebookincubator/create-react-app/issues/2677
+                            ident: 'postcss',
+                            plugins: () => [
+                              require('postcss-flexbugs-fixes'),
+                              autoprefixer({
+                                browsers: [
+                                  '>1%',
+                                  'last 4 versions',
+                                  'Firefox ESR',
+                                  'not ie < 9', // React doesn't support IE8 anyway
+                                ],
+                                flexbox: 'no-2009',
+                              }),
+                            ],
                           }
                       },
                       {
@@ -201,7 +211,7 @@ module.exports = {
                   ]
               })
           },
-            /*my configuration for sass-modules edns here */
+            /*my configuration for sass-modules ends here */
 
 
           /*here starts default config for styles*/
