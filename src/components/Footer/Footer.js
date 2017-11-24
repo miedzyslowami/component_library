@@ -1,20 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import scss from './Footer.scss';
 
-/**pointless comment */
-class ProgressBar extends React.Component{
-  render(){
-      return <div>Hello {this.props.message}</div>
+class Footer extends React.Component {
+  constructor(props){
+    super(props)
+      this.variables = scss.variables;
   }
+
+    render() {
+      console.log(Object.values(scss));
+        return (
+          <div className={scss.footer}>
+          <p className={scss.copyrights}>©{this.props.year} by {this.props.author}</p>
+          </div>
+        )
+    }
 }
 
-ProgressBar.propTypes = {
-  /** Message to display */
-  message: PropTypes.string
+
+Footer.propTypes = {
+  author: PropTypes.string.isRequired,
+  year:PropTypes.string.isRequired
 };
 
-ProgressBar.defaultProps = {
-  message: 'World'
+Footer.defaultProps = {
+  author: 'Małgorzata Grajewska',
+  year: '2017'
 };
 
-export default ProgressBar;
+export default Footer;

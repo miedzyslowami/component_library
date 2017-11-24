@@ -1,0 +1,36 @@
+/*varaibles */
+
+//Footer
+$footerBackground:#607D8B;
+$footerFontSize:20px;
+$footerFontColor:white;
+
+// :export {variables: {variables:$footerBackground;} }
+
+.footer {
+  background-color: $footerBackground;
+  width: 100vw;
+  font-size: $footerFontSize;
+  box-sizing: border-box;
+  .copyrights {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+    letter-spacing: 3px;
+  }
+
+  .credits {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: $footerFontSize * 0.5;
+
+    a {
+      text-decoration: none;
+      color: $footerFontColor;
+      text-align: center;
+    }
+  }
+}
