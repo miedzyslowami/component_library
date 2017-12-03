@@ -1,0 +1,112 @@
+/*varaibles */
+
+$pallete0:#FFFFFF,pink,#A7BAB8,#273043,#488799,#4e5d5b;
+$pallete1:#FFFFFF,#488799,#A7BAB8,#383324;
+$pallete2:#1D1E2C,#488799,#273043,#FFFFFF,#A7BAB8;
+$pallete3:#A7BAB8,#273043,#EFF6EE,#273043,white;
+$currentPallete:$pallete0;
+//background/maincolor/accent/FontColor
+$backgroundColor:nth($currentPallete,1);
+$basicFont:'Raleway';
+$linkColor:nth($currentPallete,6);
+$rulerColor:nth($currentPallete,3);
+//Logo
+$textDuration: 1s;
+$waveDuration: 2s;
+$logoTextString:'miedzyslowami';
+$logoTextToList:str-to-list($logoTextString);
+$logoText:m i e d z y s l o w a m i;
+$logoLength:length($logoText);
+$logoColor:nth($currentPallete,4);
+$logoFontSize:1rem;
+$logoFontWeight:900;
+$logoHeight:2.5 * $logoFontSize;
+$logoLetterBoxWidth:$logoFontSize;
+$logoWidth:$logoLetterBoxWidth * $logoLength;
+$navigationBorderColor:nth($currentPallete,2);
+//Header
+$headerWidth:50%;
+$headerBackground:nth($currentPallete,1);
+$headerFontSize:20px;
+$menuIconSize:100px;
+$menuIconFill:nth($currentPallete,2);
+$menuIconFillAccent:nth($currentPallete,6);
+$menuIconFillAccent2:nth($currentPallete,3);
+$menuIconFillAccent3:nth($currentPallete,4);
+$showMenuTimer:1s;
+$headerPaddingTopBottom:20px;
+$menuItemPadding:20px;
+//there are 4 menu items---check the Header component state!
+$numberOfMenuItems:3;
+$menuHeight:(2 * $headerPaddingTopBottom) + $numberOfMenuItems * ($headerFontSize + 2 * $menuItemPadding);
+// :export {variables: {variables:$footerBackground;} }
+
+.header{
+  background-color: $headerBackground;
+  font-size:$headerFontSize;
+  width:$headerWidth;
+  padding:$headerPaddingTopBottom 10px;
+  box-sizing: border-box;
+  .main__heading{
+    text-indent: -100%;
+    visibility: none;
+    height:0;
+    width:0;
+  }
+  .wrapper{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    .logo{
+      display:block;
+      width:100%;
+      text-align: center;
+    }
+    .mobile__menu{
+      display:block;
+      width:100%;
+      user-select: none;
+      cursor:pointer;
+    }
+    #navigation{
+      padding:0;
+      height:0;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-2em);
+      z-index: -1;
+      transition: all 0.3s ease-in-out 0s,height 0.5s linear 0.1s,visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+      li{
+        text-align: center;
+        padding: $menuItemPadding;
+        text-transform: lowercase;
+        letter-spacing: 3px;
+        user-select: none;
+        list-style: none;
+        cursor:pointer;
+        max-width:320px;
+        margin:0 auto;
+        //The border and transition are set on a pseudo element to prevent transitioning the text and avoid adding markup.
+        &:after {
+          display:block;
+          content: '';
+          border-bottom: 2px solid $navigationBorderColor;
+          transform: scaleX(0);
+          transition: transform 250ms ease-in-out;
+          transform-origin:  0% 50%;
+        }
+        &:hover:after {
+          transform: scaleX(1);
+        }
+      }
+      &.show__menu{
+        height:$menuHeight;
+        visibility: visible; /* shows sub-menu */
+        opacity: 1;
+        z-index: 1;
+        transform: translateY(0%);
+        transition-delay: 0s,0s, 0s, 0.3s,0.01s;
+      }
+    }
+  }
+}

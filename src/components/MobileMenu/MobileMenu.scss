@@ -1,0 +1,61 @@
+$pallete0:#FFFFFF,pink,#A7BAB8,#273043,#488799,#4e5d5b;
+$pallete1:#FFFFFF,#488799,#A7BAB8,#383324;
+$pallete2:#1D1E2C,#488799,#273043,#FFFFFF,#A7BAB8;
+$pallete3:#A7BAB8,#273043,#EFF6EE,#273043,white;
+$currentPallete:$pallete0;
+//background/maincolor/accent/FontColor
+$backgroundColor:nth($currentPallete,1);
+$basicFont:'Raleway';
+$linkColor:nth($currentPallete,6);
+$rulerColor:nth($currentPallete,3);
+//Logo
+$textDuration: 1s;
+$waveDuration: 2s;
+$logoTextString:'miedzyslowami';
+$logoTextToList:str-to-list($logoTextString);
+$logoText:m i e d z y s l o w a m i;
+$logoLength:length($logoText);
+$logoColor:nth($currentPallete,4);
+$logoFontSize:1rem;
+$logoFontWeight:900;
+$logoHeight:2.5 * $logoFontSize;
+$logoLetterBoxWidth:$logoFontSize;
+$logoWidth:$logoLetterBoxWidth * $logoLength;
+$navigationBorderColor:nth($currentPallete,2);
+//Header
+$headerBackground:nth($currentPallete,1);
+$headerFontSize:20px;
+$menuIconSize:100px;
+$menuIconFill:nth($currentPallete,2);
+$menuIconFillAccent:nth($currentPallete,6);
+$menuIconFillAccent2:nth($currentPallete,3);
+$menuIconFillAccent3:nth($currentPallete,4);
+$showMenuTimer:1s;
+$headerPaddingTopBottom:20px;
+$menuItemPadding:20px;
+//there are 4 menu items---check the Header component state!
+$numberOfMenuItems:3;
+$menuHeight:(2 * $headerPaddingTopBottom) + $numberOfMenuItems * ($headerFontSize + 2 * $menuItemPadding);
+#menu__icon{
+  transition: all #{$showMenuTimer} cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: rotate(0deg);
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin:0 auto;
+  padding: 30px 0px;
+  #flower{
+      @for $i from 1 through 6{
+      #flower__petal__#{$i}{
+        fill:$menuIconFill;
+      }
+    }
+
+  }
+  &.unrotate__icon{
+    transform: rotate(0deg);
+  }
+  &.rotate__icon{
+      transform: rotate(540deg);
+  }
+}

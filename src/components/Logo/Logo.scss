@@ -1,0 +1,72 @@
+$pallete0:#FFFFFF,pink,#A7BAB8,#273043,#488799,#4e5d5b;
+$pallete1:#FFFFFF,#488799,#A7BAB8,#383324;
+$pallete2:#1D1E2C,#488799,#273043,#FFFFFF,#A7BAB8;
+$pallete3:#A7BAB8,#273043,#EFF6EE,#273043,white;
+$currentPallete:$pallete0;
+//background/maincolor/accent/FontColor
+$backgroundColor:nth($currentPallete,1);
+$basicFont:'Raleway';
+$linkColor:nth($currentPallete,6);
+$rulerColor:nth($currentPallete,3);
+//Logo
+$textDuration: 1s;
+$waveDuration: 2s;
+$logoTextString:'miedzyslowami';
+$logoTextToList:str-to-list($logoTextString);
+$logoText:m i e d z y s l o w a m i;
+$logoLength:length($logoText);
+$logoColor:nth($currentPallete,4);
+$logoFontSize:1rem;
+$logoFontWeight:900;
+$logoHeight:2.5 * $logoFontSize;
+$logoLetterBoxWidth:$logoFontSize;
+$logoWidth:$logoLetterBoxWidth * $logoLength;
+$navigationBorderColor:nth($currentPallete,2);
+
+._#{$logoTextString}_{
+  content:'';//has to have property to be read by jsx module
+}
+#logo{
+  display:block;
+  margin:auto;
+  height:$logoHeight;
+  width:$logoWidth;
+  .text {
+    color: $logoColor;
+    font-size: $logoFontSize;
+    display: inline-block;
+    animation: text $textDuration ease-in 3;
+    transform: translatez(0);
+    margin-top:$logoFontSize;
+    user-select: none;
+    cursor:pointer;
+
+    @for $i from 1 through $logoLength{
+      &__#{$i}{
+        width:$logoLetterBoxWidth;
+        text-align: center;
+        left: ($i - 1) * (4 * $logoFontSize);
+        animation-delay: 150 + ($i - 1) * 80ms;
+        &:after{
+          display:none;
+          content:nth($logoText,$i);
+        }
+      }
+    }
+  }
+
+  @keyframes text {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    30% {
+      transform: translate3d(0, 0, 0);
+    }
+    45% {
+      transform: translate3d(0, -2rem, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
