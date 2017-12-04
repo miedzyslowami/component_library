@@ -1,86 +1,3 @@
-/*
-
-Atom One Dark by Daniel Gamage
-Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
-
-base:    #282c34
-mono-1:  #abb2bf
-mono-2:  #818896
-mono-3:  #5c6370
-hue-1:   #56b6c2
-hue-2:   #61aeee
-hue-3:   #c678dd
-hue-4:   #98c379
-hue-5:   #e06c75
-hue-5-2: #be5046
-hue-6:   #d19a66
-hue-6-2: #e6c07b
-
-*/
-.atom-one-dark__hljs___1MsSD {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #abb2bf;
-  background: #282c34; }
-
-.atom-one-dark__hljs-comment___1jlUe,
-.atom-one-dark__hljs-quote___3TD3s {
-  color: #5c6370;
-  font-style: italic; }
-
-.atom-one-dark__hljs-doctag___3IjM7,
-.atom-one-dark__hljs-keyword___uF2aC,
-.atom-one-dark__hljs-formula___1EzRc {
-  color: #c678dd; }
-
-.atom-one-dark__hljs-section___1FAQd,
-.atom-one-dark__hljs-name___1NLlt,
-.atom-one-dark__hljs-selector-tag___2WEpx,
-.atom-one-dark__hljs-deletion___317Ve,
-.atom-one-dark__hljs-subst___2TPwk {
-  color: #e06c75; }
-
-.atom-one-dark__hljs-literal___2i1rc {
-  color: #56b6c2; }
-
-.atom-one-dark__hljs-string___huB-_,
-.atom-one-dark__hljs-regexp___1IUyV,
-.atom-one-dark__hljs-addition___3vkRu,
-.atom-one-dark__hljs-attribute____56xm,
-.atom-one-dark__hljs-meta-string___2yoSo {
-  color: #98c379; }
-
-.atom-one-dark__hljs-built_in___12BBc,
-.atom-one-dark__hljs-class___13fdQ .atom-one-dark__hljs-title___Hzi75 {
-  color: #e6c07b; }
-
-.atom-one-dark__hljs-attr___2O3IJ,
-.atom-one-dark__hljs-variable___2U9Y2,
-.atom-one-dark__hljs-template-variable___3_Dcc,
-.atom-one-dark__hljs-type___yAD8B,
-.atom-one-dark__hljs-selector-class___38Rlg,
-.atom-one-dark__hljs-selector-attr___17jrI,
-.atom-one-dark__hljs-selector-pseudo___2ub1c,
-.atom-one-dark__hljs-number___2MMRP {
-  color: #d19a66; }
-
-.atom-one-dark__hljs-symbol___2VOrS,
-.atom-one-dark__hljs-bullet___3CaFp,
-.atom-one-dark__hljs-link___1rTnj,
-.atom-one-dark__hljs-meta___3gQuK,
-.atom-one-dark__hljs-selector-id___3gJhv,
-.atom-one-dark__hljs-title___Hzi75 {
-  color: #61aeee; }
-
-.atom-one-dark__hljs-emphasis___15OHH {
-  font-style: italic; }
-
-.atom-one-dark__hljs-strong___2yLOO {
-  font-weight: bold; }
-
-.atom-one-dark__hljs-link___1rTnj {
-  text-decoration: underline; }
 body {
   font-family: 'Dosis', sans-serif;
   /* Documentation site component styles */ }
@@ -130,89 +47,6 @@ body {
     margin-left: 275px; }
   body .index__clear___1eU5N {
     clear: both; }
-/*
-
-Atom One Dark by Daniel Gamage
-Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
-
-base:    #282c34
-mono-1:  #abb2bf
-mono-2:  #818896
-mono-3:  #5c6370
-hue-1:   #56b6c2
-hue-2:   #61aeee
-hue-3:   #c678dd
-hue-4:   #98c379
-hue-5:   #e06c75
-hue-5-2: #be5046
-hue-6:   #d19a66
-hue-6-2: #e6c07b
-
-*/
-.atom-one-dark__hljs___3Cizn {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #abb2bf;
-  background: #282c34; }
-
-.atom-one-dark__hljs-comment___26KjK,
-.atom-one-dark__hljs-quote___FP9iE {
-  color: #5c6370;
-  font-style: italic; }
-
-.atom-one-dark__hljs-doctag___ibxcu,
-.atom-one-dark__hljs-keyword___idUKH,
-.atom-one-dark__hljs-formula___1xHzc {
-  color: #c678dd; }
-
-.atom-one-dark__hljs-section___3Eone,
-.atom-one-dark__hljs-name___qT0nq,
-.atom-one-dark__hljs-selector-tag___2re8d,
-.atom-one-dark__hljs-deletion___1U0AK,
-.atom-one-dark__hljs-subst___1PJ8i {
-  color: #e06c75; }
-
-.atom-one-dark__hljs-literal___1hX8z {
-  color: #56b6c2; }
-
-.atom-one-dark__hljs-string___VzxGN,
-.atom-one-dark__hljs-regexp___1jiLG,
-.atom-one-dark__hljs-addition___3JkHs,
-.atom-one-dark__hljs-attribute___2tZb1,
-.atom-one-dark__hljs-meta-string___2Opwb {
-  color: #98c379; }
-
-.atom-one-dark__hljs-built_in___3cYEE,
-.atom-one-dark__hljs-class___1ledM .atom-one-dark__hljs-title___2Go82 {
-  color: #e6c07b; }
-
-.atom-one-dark__hljs-attr___193q3,
-.atom-one-dark__hljs-variable___2hxuN,
-.atom-one-dark__hljs-template-variable___3cGjt,
-.atom-one-dark__hljs-type___3r7tg,
-.atom-one-dark__hljs-selector-class___12uXx,
-.atom-one-dark__hljs-selector-attr___1Jo4N,
-.atom-one-dark__hljs-selector-pseudo___3L5Lz,
-.atom-one-dark__hljs-number___1bV8k {
-  color: #d19a66; }
-
-.atom-one-dark__hljs-symbol___2h8Lr,
-.atom-one-dark__hljs-bullet___2SxH2,
-.atom-one-dark__hljs-link___3E7W5,
-.atom-one-dark__hljs-meta___1Z-mp,
-.atom-one-dark__hljs-selector-id___2L2Zx,
-.atom-one-dark__hljs-title___2Go82 {
-  color: #61aeee; }
-
-.atom-one-dark__hljs-emphasis___1RG2Q {
-  font-style: italic; }
-
-.atom-one-dark__hljs-strong___3XyF1 {
-  font-weight: bold; }
-
-.atom-one-dark__hljs-link___3E7W5 {
-  text-decoration: underline; }
 /*varaibles */
 .Footer__footer___2nhzB {
   background-color: #607D8B;
@@ -251,6 +85,7 @@ hue-6-2: #e6c07b
     -webkit-animation: Logo__text___2lt6y 1s ease-in 3;
             animation: Logo__text___2lt6y 1s ease-in 3;
     -webkit-transform: translatez(0);
+        -ms-transform: translatez(0);
             transform: translatez(0);
     margin-top: 1rem;
     -webkit-user-select: none;
@@ -405,8 +240,10 @@ hue-6-2: #e6c07b
             transform: translate3d(0, 0, 0); } }
 #MobileMenu__menu__icon___y15v2 {
   -webkit-transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
           transform: rotate(0deg);
   display: block;
   width: 50px;
@@ -427,9 +264,11 @@ hue-6-2: #e6c07b
     fill: pink; }
   #MobileMenu__menu__icon___y15v2.MobileMenu__unrotate__icon___3SU0U {
     -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
             transform: rotate(0deg); }
   #MobileMenu__menu__icon___y15v2.MobileMenu__rotate__icon___2ScCD {
     -webkit-transform: rotate(540deg);
+        -ms-transform: rotate(540deg);
             transform: rotate(540deg); }
 .textInput__error___1i3su {
   color: red; }
@@ -468,9 +307,11 @@ hue-6-2: #e6c07b
       visibility: hidden;
       opacity: 0;
       -webkit-transform: translateY(-2em);
+          -ms-transform: translateY(-2em);
               transform: translateY(-2em);
       z-index: -1;
       -webkit-transition: all 0.3s ease-in-out 0s,height 0.5s linear 0.1s,visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+      -o-transition: all 0.3s ease-in-out 0s,height 0.5s linear 0.1s,visibility 0s linear 0.3s, z-index 0s linear 0.01s;
       transition: all 0.3s ease-in-out 0s,height 0.5s linear 0.1s,visibility 0s linear 0.3s, z-index 0s linear 0.01s; }
       .ScrollDownMenu__header___2me8c .ScrollDownMenu__wrapper___2dIzM #ScrollDownMenu__navigation___ocwf5 li {
         text-align: center;
@@ -490,15 +331,19 @@ hue-6-2: #e6c07b
           content: '';
           border-bottom: 2px solid pink;
           -webkit-transform: scaleX(0);
+              -ms-transform: scaleX(0);
                   transform: scaleX(0);
           -webkit-transition: -webkit-transform 250ms ease-in-out;
           transition: -webkit-transform 250ms ease-in-out;
+          -o-transition: transform 250ms ease-in-out;
           transition: transform 250ms ease-in-out;
           transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
           -webkit-transform-origin: 0% 50%;
+              -ms-transform-origin: 0% 50%;
                   transform-origin: 0% 50%; }
         .ScrollDownMenu__header___2me8c .ScrollDownMenu__wrapper___2dIzM #ScrollDownMenu__navigation___ocwf5 li:hover:after {
           -webkit-transform: scaleX(1);
+              -ms-transform: scaleX(1);
                   transform: scaleX(1); }
       .ScrollDownMenu__header___2me8c .ScrollDownMenu__wrapper___2dIzM #ScrollDownMenu__navigation___ocwf5.ScrollDownMenu__show__menu___2w15K {
         height: 220px;
@@ -507,8 +352,10 @@ hue-6-2: #e6c07b
         opacity: 1;
         z-index: 1;
         -webkit-transform: translateY(0%);
+            -ms-transform: translateY(0%);
                 transform: translateY(0%);
         -webkit-transition-delay: 0s,0s, 0s, 0.3s,0.01s;
+             -o-transition-delay: 0s,0s, 0s, 0.3s,0.01s;
                 transition-delay: 0s,0s, 0s, 0.3s,0.01s; }
 
 /*# sourceMappingURL=styles.css.map*/
