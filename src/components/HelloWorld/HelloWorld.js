@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/**pointless comment */
+/** pointless comment */
 class HelloWorld extends React.Component{
   render(){
       return <div>Hello {this.props.message}</div>

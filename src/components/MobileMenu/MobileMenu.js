@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import scss from './MobileMenu.scss';
-
+/** Clicable icon to mobile menu */
 class MobileMenu extends React.Component {
     constructor(props){
         super(props)
@@ -11,7 +12,7 @@ class MobileMenu extends React.Component {
     }
     handleClick = (e) =>{
         this.state.rotate===false ?  this.setState({className:scss.rotate__icon,rotate:true}) : this.setState({className:scss.unrotate__icon,rotate:false});
-        this.props.handleClick();
+        this.props.handleClick(e);
     }
     render() {
         return (
@@ -30,5 +31,14 @@ class MobileMenu extends React.Component {
         )
     }
 }
+
+MobileMenu.propTypes = {
+    /** function performed on icon  */
+  handleClick: PropTypes.func.isRequired,
+};
+
+MobileMenu.defaultProps = {
+  handleClick: function handleClick(e){console.log('activate sibling component change on click')}
+};
 
 export default MobileMenu;

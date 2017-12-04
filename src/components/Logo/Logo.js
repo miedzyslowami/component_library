@@ -1,6 +1,6 @@
 import React from 'react';
 import scss from './Logo.scss';
-
+/** Animated wave of text (3times);all configuration is made in scss file */
 class Logo extends React.Component {
     constructor(props){
         super(props)

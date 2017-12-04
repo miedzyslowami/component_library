@@ -1,16 +1,18 @@
 /*varaibles */
 
-//Footer
 $footerBackground:#607D8B;
 $footerFontSize:20px;
 $footerFontColor:white;
+$footerWidth:500px;
 
-// :export {variables: {variables:$footerBackground;} }
+
+
 
 .footer {
   background-color: $footerBackground;
-  width: 100vw;
+  width: $footerWidth;
   font-size: $footerFontSize;
+  color:$footerFontColor;
   box-sizing: border-box;
   .copyrights {
     display: block;
@@ -19,7 +21,6 @@ $footerFontColor:white;
     padding: 20px 0;
     letter-spacing: 3px;
   }
-
   .credits {
     display: block;
     text-align: center;

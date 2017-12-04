@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import scss from './Footer.scss';
 
+/** Footer to each  page */
 class Footer extends React.Component {
-  constructor(props){
-    super(props)
-      this.variables = scss.variables;
-  }
-
     render() {
-      console.log(Object.values(scss));
         return (
           <div className={scss.footer}>
           <p className={scss.copyrights}>©{this.props.year} by {this.props.author}</p>
@@ -20,7 +15,9 @@ class Footer extends React.Component {
 
 
 Footer.propTypes = {
+  /** Set person who owns copyrights*/
   author: PropTypes.string.isRequired,
+    /** Set year of creation*/
   year:PropTypes.string.isRequired
 };
 

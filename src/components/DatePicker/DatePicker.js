@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './fontAwsome/css/font-awesome.min.css';
 import scss from './DatePicker.scss';
+
+
+/** Date picker generates calendar and passes picked date to parent component */
 class DatePicker extends React.Component {
     constructor (props){
         super(props)
@@ -70,11 +73,11 @@ class DatePicker extends React.Component {
         this.setState({numberOfDays:numberOfDays});
     }
     setWeekday = (currentYear,currentMonth,currentDay) =>{
-        let thisDay=currentDay;
-        let thisMonth=parseInt(currentMonth+1);
+        let thisDay = currentDay;
+        let thisMonth = parseInt((currentMonth+1),10);
 
-        thisMonth<10? (thisMonth='0'+thisMonth):thisMonth;
-        thisDay<10? (thisDay='0'+thisDay):thisDay;
+        thisMonth<10 ? (thisMonth = '0' + thisMonth) : thisMonth;
+        thisDay<10 ? (thisDay = '0' + thisDay) : thisDay;
 
         let thisDate=currentYear+'-'+thisMonth+'-'+thisDay;
         let dataWeekday=new Date(thisDate).getDay();
@@ -108,22 +111,23 @@ class DatePicker extends React.Component {
                         {weekDays}
                     </div>
                     <div className={scss.days}>{calendar}</div>
-
                 </div>)
     }
 }
 
 
 DatePicker.propTypes = {
+    /** function that passes current date to parent component  */
   passCurrentData: PropTypes.func.isRequired,
+    /** function performed on date pick */
   handleDatePick:PropTypes.func.isRequired,
-  classname: PropTypes.string.isRequired,
-  display: PropTypes.string.isRequired
+    /** Project or component name prefix  */
+  classname: PropTypes.string
 };
 
 DatePicker.defaultProps = {
   passCurrentData: function passCurrentData(year,month,e){console.log(year,month,e)},
-  handleDatePick:  function handleDatePick(e){console.log("date:" + e.getFullYear() + "-" + (e.getMonth()+1 ) + "-" + e.getDate());},
+  handleDatePick:  function handleDatePick(year,month,e){console.log(year,month,e)},
   classname:"date__picker"
 };
 
