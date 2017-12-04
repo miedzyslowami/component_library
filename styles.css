@@ -1535,8 +1535,9 @@ body {
 /*varaibles */
 .Footer__footer___2PpiC {
   background-color: #607D8B;
-  width: 100vw;
+  width: 500px;
   font-size: 20px;
+  color: white;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
   .Footer__footer___2PpiC .Footer__copyrights___13swm {
