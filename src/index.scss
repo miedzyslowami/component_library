@@ -1,9 +1,9 @@
 // :global{
 //   @import './../node_modules/highlight.js/styles/atom-one-dark.css';
 // }
+@import './../node_modules/normalize.scss/normalize.scss';
 body {
   font-family: 'Dosis', sans-serif;
-
   .navigation {
     float: left;
     width: 250px;
@@ -22,7 +22,6 @@ body {
     }
   }
   .props{
-
       border-collapse:collapse;
       td {
         border-top: solid 1px #FFD166;

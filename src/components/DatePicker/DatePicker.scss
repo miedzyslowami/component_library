@@ -1,36 +1,128 @@
-/*varaibles */
+$months: (January,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(February,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(March,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(April,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(May,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(June,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(July,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(August,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(September,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(October,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(November,#fffcf9,#536A75,#536A75,#A1C181,#619B8A),(December,#fffcf9,#536A75,#536A75,#A1C181,#619B8A);
+$calendarWidth:320px;
+$pallete:#fffcf9,#536A75,#536A75,#A1C181,#619B8A;
+$decorativeFont:'Pacifico', cursive;
+$todayBgColor:#536A75;
 
-//Footer
-$footerBackground:#607D8B;
-$footerFontSize:20px;
-$footerFontColor:white;
 
-// :export {variables: {variables:$footerBackground;} }
-
-.footer {
-  background-color: $footerBackground;
-  width: 100vw;
-  font-size: $footerFontSize;
-  box-sizing: border-box;
-  .copyrights {
-    display: block;
-    text-align: center;
+@each $element,$color1,$color2,$color3,$color4,$color5 in $months {
+  .date__picker_#{$element} {
+    font-family: $decorativeFont;
+    width: 320px;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 0 auto;
-    padding: 20px 0;
-    letter-spacing: 3px;
-  }
-
-  .credits {
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px 0;
-    font-size: $footerFontSize * 0.5;
-
-    a {
-      text-decoration: none;
-      color: $footerFontColor;
+    text-align: left;
+      .year {
+      padding: 10px;
+      font-size: 2rem;
+      background-color: white;
+      color: $color2;
       text-align: center;
+    }
+
+    .month {
+      background-color: white;
+      text-align: center;
+      color: $color2;
+      font-size: 1.7rem;
+      padding: 10px;
+      p {
+        padding: 10px;
+        display: inline;
+      }
+      .button_next,
+      .button_prev {
+        width: 20px;
+        height: 25px;
+      }
+      .button_prev {
+        transform: rotate(180deg);
+      }
+    }
+
+    .week_days {
+
+      background-color: $color2;
+      padding: 10px 0;
+      color: $color1;
+      div {
+        text-align: center;
+        display: inline-block;
+        width: $calendarWidth/7 - 0.01;//had to make this correction because of firefox;normalize didn't work
+        box-sizing: border-box;
+      }
+    }
+
+    .days {
+      min-height: 275px;
+      background-color: white;
+
+      #today {
+        background-color: $todayBgColor;
+        border-radius: 0;
+        box-sizing: border-box;
+        color:$color1;
+      }
+
+      .each_day {
+        display: inline-block;
+        width: $calendarWidth/7 - 0.01;//had to make this correction because of firefox;normalize didn't work
+        height: $calendarWidth/7;
+        text-align: center;
+        padding: 0;
+        box-sizing: border-box;
+        transition: color 0.5s ease-in, background-color 0.5s ease-in;
+        color: $color3;
+        font-weight: bold;
+        line-height: 3rem;
+        &:last-of-type{
+          margin:0;
+        }
+      }
+
+      .day_Mon:first-child {
+        margin-left: $calendarWidth/7;
+      }
+
+      .day_Tue:first-child {
+        margin-left: $calendarWidth/7*2;
+      }
+
+      .day_Wed:first-child {
+        margin-left: $calendarWidth/7*3;
+      }
+
+      .day_Thr:first-child {
+        margin-left: $calendarWidth/7*4;
+      }
+
+      .day_Fri:first-child {
+        margin-left: $calendarWidth/7*5;
+      }
+
+      .day_Sat:first-child {
+        margin-left: $calendarWidth/7*6;
+      }
+
+      .day_Sun:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .buttons {
+      .button {
+        width: 100px;
+        height: 50px;
+        background-color: $color5;
+        margin: 25px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        border: none;
+        color: $color2;
+      }
     }
   }
 }

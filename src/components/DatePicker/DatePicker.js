@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './fontAwsome/css/font-awesome.min.css';
+import scss from './DatePicker.scss';
 class DatePicker extends React.Component {
     constructor (props){
         super(props)
@@ -20,20 +21,20 @@ class DatePicker extends React.Component {
     }
     handleChangeMonth =(e)=>{
         e.preventDefault();
-        let currentMonth=this.state.currentMonth;
-        let currentYear=this.state.currentYear;
+        let currentMonth = this.state.currentMonth;
+        let currentYear = this.state.currentYear;
         //for previuos month
-        if(e.target.dataset.changemonth=='prev'){
-            if(currentMonth===0){
-                currentMonth=11;
+        if(e.target.dataset.changemonth === 'prev'){
+            if(currentMonth === 0){
+                currentMonth = 11;
                 currentYear--;
             }else{
                 currentMonth--;
             }
         }else{
             //for next month
-            if(currentMonth===11){
-                currentMonth=0;
+            if(currentMonth === 11){
+                currentMonth = 0;
                 currentYear++;
             }else{
                 currentMonth++;
@@ -77,7 +78,7 @@ class DatePicker extends React.Component {
 
         let thisDate=currentYear+'-'+thisMonth+'-'+thisDay;
         let dataWeekday=new Date(thisDate).getDay();
-        return 'each_day day_'+this.state.weekdays[dataWeekday];
+        return 'day_' + this.state.weekdays[dataWeekday];
     }
 
     render() {
@@ -87,29 +88,27 @@ class DatePicker extends React.Component {
         let todayYear=today.getFullYear();
         let todayDay=today.getDate();
         let calendar = numberOfDays.map((e,i)=>{
-          return (<div className={this.setWeekday(this.state.currentYear,this.state.currentMonth,e)}
-                        id={ (this.state.currentMonth===todayMonth && this.state.currentYear===todayYear && e===todayDay) ? 'today' : null} key={i}
+          return (<div className={scss[`${this.setWeekday(this.state.currentYear,this.state.currentMonth,e)}`] +' ' + scss.each_day}
+                        id={ (this.state.currentMonth===todayMonth && this.state.currentYear===todayYear && e===todayDay) ? `${scss.today}` : null} key={i}
                         onClick={this.props.handleDatePick.bind(this.state.currentYear,this.state.currentMonth,e)}>
                         {e}
                   </div>)
         });
         let weekDays = this.state.weekdays.map((e,i)=>{
-            return( <div key="i">{e}</div>)
+            return( <div key={i}>{e}</div>)
         })
-        return (<div className={this.props.classname+'_'+this.state.month[this.state.currentMonth]} style={{display:this.props.display}}>
-                    <div className='year'>{this.state.currentYear}</div>
-                    <div className='month_picture'></div>
-                    <div className='month'>
-                        <img src='./images/next.svg' data-changeMonth='prev' className='button_prev' onClick={this.handleChangeMonth}/>
+        return (<div className={scss[this.props.classname+'_'+this.state.month[this.state.currentMonth]]}>
+                    <div className={scss.year}>{this.state.currentYear}</div>
+                    <div className={scss.month}>
+                        <span className="fa fa-angle-left" aria-hidden="true" data-changemonth='prev' onClick={this.handleChangeMonth}></span>
                         <p>{this.state.month[this.state.currentMonth]}</p>
-                        <img src='./images/next.svg' data-changeMonth='next' onClick={this.handleChangeMonth} className='button_next'/>
+                        <span className="fa fa-angle-right" aria-hidden="true" data-changemonth='next' onClick={this.handleChangeMonth}></span>
                     </div>
-                    <div className='week_days'>
+                    <div className={scss.week_days}>
                         {weekDays}
                     </div>
-                    <div className='days'>{calendar}</div>
-                    <div className='buttons'>
-                    </div>
+                    <div className={scss.days}>{calendar}</div>
+
                 </div>)
     }
 }
@@ -123,10 +122,9 @@ DatePicker.propTypes = {
 };
 
 DatePicker.defaultProps = {
-  passCurrentData: function passCurrentData(year,month,e){console.log('dupa')},
-  handleDatePick:  function handleDatePick(){console.log('dupa2')},
-  classname:"dupa",
-  display:"table"
+  passCurrentData: function passCurrentData(year,month,e){console.log(year,month,e)},
+  handleDatePick:  function handleDatePick(e){console.log("date:" + e.getFullYear() + "-" + (e.getMonth()+1 ) + "-" + e.getDate());},
+  classname:"date__picker"
 };
 
 
